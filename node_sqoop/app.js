@@ -5,8 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
 var index = require('./routes/index');
 var users = require('./routes/users');
+var testconn = require('./routes/testconnection');
+var creatconn = require('./routes/createconnection');
 
 var app = express();
 
@@ -24,33 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/snp/testconnection',testconn);
+app.use('/snp/createconnection',creatconn);
 
-app.all('*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-    res.header("X-Powered-By",' 3.2.1');
-    res.header("Content-Type", "application/json;charset=utf-8");
-    next();
-});
-
-//Post handler
-app.post('/snp/testconnection', function (req, res) {
-    var connUserName = req.body.connUserName;
-    var connPassword = req.body.connPassword;
-    var connUrl = req.body.connUrl;
-    console.log(connPassword + connUrl);
-    res.send("PASS");
-});
-
-
-app.post('/snp/createconnction', function (req, res) {
-    var connUserName = req.body.connUserName;
-    var connPassword = req.body.connPassword;
-    var connUrl = req.body.connUrl;
-
-    res.send("PASS");
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -70,7 +49,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-var server = app.listen(3000, function () {
+var server = app.listen(3097, function () {
     var host = server.address().address;
     var port = server.address().port;
 

@@ -22,199 +22,195 @@
 </head>
 
 <body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle waves-effect waves-dark" data-toggle="collapse"
+                        data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand waves-effect waves-dark" href="index.html"><i class="large material-icons">insert_chart</i>
+                    <strong>三农普ETL平台</strong></a>
 
-
-
-<div id="wrapper">
-    <nav class="navbar navbar-default top-navbar" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle waves-effect waves-dark" data-toggle="collapse"
-                    data-target=".sidebar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand waves-effect waves-dark" href="index.html"><i class="large material-icons">insert_chart</i>
-                <strong>三农普ETL平台</strong></a>
-
-            <div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
-        </div>
-
-        <ul class="nav navbar-top-links navbar-right">
-
-            <li>
-                <a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1">
-                    <i class="fa fa-user fa-fw"></i>
-                    <b>zhkmxx930</b>
-                    <i class="material-icons right">arrow_drop_down</i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <!-- Dropdown Structure -->
-    <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#"><i class="fa fa-user fa-fw"></i> 用户信息</a>
-        </li>
-        <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
-        </li>
-        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> 注销</a>
-        </li>
-    </ul>
-
-    <!--/. NAV TOP  -->
-    <nav class="navbar-default navbar-side" role="navigation">
-        <div class="sidebar-collapse">
-            <ul class="nav" id="main-menu">
-
-                <li>
-                    <a class="active-menu waves-effect waves-dark" href="index.html"><i class="fa fa-dashboard"></i>
-                        数据源配置</a>
-                </li>
-                <li>
-                    <a href="empty.html" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> 任务设置</a>
-                </li>
-                <li>
-                    <a href="chart.html" class="waves-effect waves-dark"><i class="fa fa-desktop"></i> 进度管理</a>
-                </li>
-                <li>
-                    <a class="waves-effect waves-dark" href="ui-elements.html"><i class="fa fa-dashboard"></i>
-                        测试</a>
-                </li>
-
-            </ul>
-
-        </div>
-
-    </nav>
-    <!-- /. NAV SIDE  -->
-
-    <div id="page-wrapper">
-        <div class="header">
-            <h1 class="page-header">
-                数据源配置
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#">ETL系统</a></li>
-                <li class="active">数据源配置</li>
-            </ol>
-
-        </div>
-        <div id="page-inner">
-            <div class="row">
-                <div class="col-md-6" id="left-container">
-                    <div class="card">
-                        <div class="card-action">
-                            Oracle连接设置
-                        </div>
-                        <div class="card-content" >
-                            <form class="col s12">
-
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="text_DSname" type="text" class="validate">
-                                        <label for="text_DSname">数据源名称</label>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="text_url" type="text" class="validate">
-                                        <label for="text_url">数据源地址</label>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="text_port" type="text" class="validate">
-                                        <label for="text_port">数据源端口</label>
-                                    </div>
-                                </div>
-
-
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="text_dbname" type="text" class="validate">
-                                        <label for="text_dbname">数据库名称</label>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="text_name" type="text" class="validate">
-                                        <label for="text_name">用户名</label>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="text_passwd" type="password" class="validate">
-                                        <label for="text_passwd">密码</label>
-                                    </div>
-                                </div>
-
-                                <center>
-                                    <a class="waves-effect waves-light btn-large" id="testBtn"><i class="material-icons left">open_in_new</i>测试连接</a>
-                                    <label style="width: 30px"></label>
-                                    <a class="waves-effect waves-light btn-large" id="submitBtn"><i
-                                            class="material-icons left">done</i>确认提交</a>
-                                </center>
-
-                            </form>
-                            <div class="clearBoth"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-content" >
-                    <div class="col-md-6" id="right-container">
-                        <div class="card">
-                            <div class="card-action">
-                                已配置Oracle连接
-                            </div>
-                            <div style="height: 30px"></div>
-                            <div id="datasource-container">
-
-                            </div>
-
-                            <div class="clearBoth"></div>
-                        </div>
-                    </div>
-                </div>
+                <div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
             </div>
 
-            <footer>
-                <p>Copyright &copy; 2017.Company name All rights reserved.</p>
-            </footer>
+            <ul class="nav navbar-top-links navbar-right">
+
+                <li>
+                    <a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1">
+                        <i class="fa fa-user fa-fw"></i>
+                        <b>zhkmxx930</b>
+                        <i class="material-icons right">arrow_drop_down</i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Dropdown Structure -->
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#"><i class="fa fa-user fa-fw"></i> 用户信息</a>
+            </li>
+            <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
+            </li>
+            <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> 注销</a>
+            </li>
+        </ul>
+
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a class="active-menu waves-effect waves-dark" href="index.html"><i class="fa fa-dashboard"></i>
+                            数据源配置</a>
+                    </li>
+                    <li>
+                        <a href="empty.html" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> 任务设置</a>
+                    </li>
+                    <li>
+                        <a href="chart.html" class="waves-effect waves-dark"><i class="fa fa-desktop"></i> 进度管理</a>
+                    </li>
+                    <li>
+                        <a class="waves-effect waves-dark" href="ui-elements.html"><i class="fa fa-dashboard"></i>测试</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+
+        <div id="page-wrapper">
+            <div class="header">
+                <h1 class="page-header">
+                    数据源配置
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#">ETL系统</a></li>
+                    <li class="active">数据源配置</li>
+                </ol>
+
+            </div>
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-6" id="left-container">
+                        <div class="card">
+                            <div class="card-action">
+                                Oracle连接设置
+                            </div>
+                            <div class="card-content" >
+                                <form class="col s12">
+
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="text_DSname" type="text" class="validate">
+                                            <label for="text_DSname">数据源名称</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="text_url" type="text" class="validate">
+                                            <label for="text_url">数据源地址</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="text_port" type="text" class="validate">
+                                            <label for="text_port">数据源端口</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="text_dbname" type="text" class="validate">
+                                            <label for="text_dbname">数据库名称</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="text_name" type="text" class="validate">
+                                            <label for="text_name">用户名</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="text_passwd" type="password" class="validate">
+                                            <label for="text_passwd">密码</label>
+                                        </div>
+                                    </div>
+
+                                    <center>
+                                        <a class="waves-effect waves-light btn-large" id="testBtn"><i class="material-icons left">open_in_new</i>测试连接</a>
+                                        <label style="width: 30px"></label>
+                                        <a class="waves-effect waves-light btn-large" id="submitBtn"><i
+                                                class="material-icons left">done</i>确认提交</a>
+                                    </center>
+
+                                </form>
+                                <div class="clearBoth"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content" >
+                        <div class="col-md-6" id="right-container">
+                            <div class="card">
+                                <div class="card-action">
+                                    已配置Oracle连接
+                                </div>
+                                <div style="height: 30px"></div>
+                                <div id="datasource-container">
+
+                                </div>
+
+                                <div class="clearBoth"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer>
+                    <p>Copyright &copy; 2017.Company name All rights reserved.</p>
+                </footer>
+            </div>
+            <!-- /. PAGE INNER  -->
         </div>
-        <!-- /. PAGE INNER  -->
+        <!-- /. PAGE WRAPPER  -->
     </div>
-    <!-- /. PAGE WRAPPER  -->
-</div>
-<!-- /. WRAPPER  -->
-<!-- JS Scripts-->
-<!-- jQuery Js -->
-<script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
 
-<!-- Bootstrap Js -->
-<script src="assets/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
 
-<script src="assets/materialize/js/materialize.min.js"></script>
+    <script src="assets/materialize/js/materialize.min.js"></script>
 
-<!-- Metis Menu Js -->
-<script src="assets/js/jquery.metisMenu.js"></script>
-<!-- Morris Chart Js -->
-<script src="assets/js/morris/raphael-2.1.0.min.js"></script>
-<script src="assets/js/morris/morris.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <!-- Morris Chart Js -->
+    <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="assets/js/morris/morris.js"></script>
 
 
-<script src="assets/js/easypiechart.js"></script>
-<script src="assets/js/easypiechart-data.js"></script>
+    <script src="assets/js/easypiechart.js"></script>
+    <script src="assets/js/easypiechart-data.js"></script>
 
-<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+    <script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
 
-<!-- Custom Js -->
-<script src="assets/js/custom-zhkmxx/connection-page-control.js"></script>
-<script src="assets/js/custom-scripts.js"></script>
+    <!-- Custom Js -->
+    <script src="assets/js/custom-zhkmxx/connection-page-control.js"></script>
+    <script src="assets/js/custom-scripts.js"></script>
 
 
 </body>

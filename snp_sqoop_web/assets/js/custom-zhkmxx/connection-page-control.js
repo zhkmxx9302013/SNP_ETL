@@ -25,12 +25,14 @@ function fetchExistDatasource(){
     });
 }
 
+
 function setDivHeight(){
     var height = $("#left-container").height();
     console.log(height);
     $("#right-container").css("max-height", height);
     $("#right-container").css("overflow-y", "scroll");
 }
+
 function generateConnJson() {
     var connData = {
         "connName":$("#text_DSname").val(),
@@ -143,6 +145,11 @@ function createFuncCallback(data, status){
     }
 }
 
+
+function editConfig(){
+
+}
+
 function addViewToDatasourceContainer(data, postData){
     var datasourceCardView = "<div class=\"col-md-12 col-sm-12\">" +
     "<div class=\"card blue-grey darken-1\">"+
@@ -152,10 +159,10 @@ function addViewToDatasourceContainer(data, postData){
             "<p>数据源端口\:<label>" +data[connPort]+" <\/label><\/p>"+
             "<p>数据库名称\:<label>" +data[connDBName]+" <\/label><\/p>"+
             "<p>用  户  名\:<label>" +data[connUserName]+" <\/label><\/p>"+
-            "<p>连  接  串\:<label> >" +postData[connUrl]+" <\/label><\/p>"+
+            "<p>连  接  串\:<label>" +postData[connUrl]+" <\/label><\/p>"+
         "<\/div>"+
         "<div class=\"card-action\">"+
-            "<a href=\"#\">修改配置项<\/a>"+
+            "<a onclick=\"onModifyConfig()\">修改配置项<\/a>"+
             "<a href=\"#\">测试连接项<\/a>"+
             "<a href=\"#\">选择数据源<\/a>"+
             "<a href=\"#\">删除数据源<\/a>"+
@@ -163,6 +170,13 @@ function addViewToDatasourceContainer(data, postData){
         "<\/div>";
     $("#datasource-container").append(datasourceCardView);
 }
+
+
+function onModifyConfig() {
+    var a = $(this).text();//.parent().prev().find("span").val();
+    console.log(a+ "a");
+}
+
 
 function regenerateViewToDatasourceContainer(connName,connServer,connPort,connDBName,connUserName,connUrl){
     var datasourceCardView = "<div class=\"col-md-12 col-sm-12\">" +
@@ -176,7 +190,7 @@ function regenerateViewToDatasourceContainer(connName,connServer,connPort,connDB
         "<p>连  接  串\:<label> >" +connUrl+" <\/label><\/p>"+
         "<\/div>"+
         "<div class=\"card-action\">"+
-        "<a href=\"#\">修改配置项<\/a>"+
+        "<a onclick=\"onModifyConfig()\">修改配置项<\/a>"+
         "<a href=\"#\">测试连接项<\/a>"+
         "<a href=\"#\">选择数据源<\/a>"+
         "<a href=\"#\">删除数据源<\/a>"+

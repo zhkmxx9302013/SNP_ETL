@@ -10,6 +10,8 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var testconn = require('./routes/testconnection');
 var creatconn = require('./routes/createconnection');
+var fetchTables = require('./routes/fetchtables');
+
 
 var app = express();
 
@@ -29,6 +31,8 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/snp/testconnection',testconn);
 app.use('/snp/createconnection',creatconn);
+app.use('/snp/fetchtables',fetchTables);
+
 
 
 // catch 404 and forward to error handler

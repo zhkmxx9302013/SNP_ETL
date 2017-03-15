@@ -111,8 +111,8 @@ function createConnFunc() {
                         addViewToDatasourceContainer(dataJ, postData);
                     }
                 },
-                error: function(data){
-                    alert("ERROR==" + data);
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+
                 }
             });
         }

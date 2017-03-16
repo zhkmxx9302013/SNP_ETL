@@ -99,13 +99,13 @@
 
         </div>
         <div id="page-inner">
-            <div class="col-md-6">
+            <div class="col-md-6" style="overflow-x:hidden;overflow-y:hidden;;max-height:4000px">
                 <div class="card">
                     <div class="card-action">
                         Sqoop 任务参数配置
                     </div>
                     <!-- 左侧卡片 -->
-                    <div class="card-content">
+                    <div class="card-content" id="left-container-view" style="overflow-x:hidden;overflow-y:hidden">
                         <form class="col s12">
 
                             <div class="row">
@@ -113,13 +113,19 @@
                                     <input id="text_DSname" type="text" class="validate">
                                     <label for="text_DSname">数据源表空间名称(可多选)</label>
                                 </div>
+
                                 <div class="input-field col s1">
-                                    <a class="btn-floating"><i class="material-icons">add</i></a>
+                                    <a class="btn-floating" id="add-btn" onclick="onAddBtnClickListener()"><i class="material-icons">add</i></a>
                                 </div>
                             </div>
+                            <div class="row"  style="padding-left: 20px">
+                                <div class="alert alert-danger" id="input-alert">
+
+                                </div>
+                            </div>
+
                             <div class="row" id="table_name_list" style="padding-left: 20px">
-                                <a class="waves-effect waves-light btn">SNP_R601</a>
-                                <a class="waves-effect waves-light btn red">SNP_R602</a>
+
                             </div>
                             <p>
                                 <input type="checkbox" class="filled-in" id="is_Increament"/>
@@ -132,56 +138,13 @@
                                     <label for="increament_mode_date">按时间增量导入</label>
                                 </p>
                                 <div id="date-time-div">
-                                    <div class="col s12">
-                                        <div class="card ">
-                                            <div class="card-content ">
-                                                <span class="card-title">SNP_R601</span>
-                                                <input class="date_picker" placeholder="选择增量开始时间">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col s12">
-                                        <div class="card ">
-                                            <div class="card-content ">
-                                                <span class="card-title">SNP_R602</span>
-                                                <input class="date_picker" placeholder="选择增量开始时间">
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
-
-
-
                                 <p>
                                     <input type="checkbox" class="filled-in" id="increament_mode_colval"/>
                                     <label for="increament_mode_colval">按列值增量导入</label>
                                 </p>
                                 <div class="row" id="col-val-div">
-                                    <div class="col s12 ">
-                                        <div class="card">
-                                            <div class="card-content ">
-                                                <p class="card-title">SNP_R601</p>
-                                                <label >增量列名称</label>
-                                                    <input id="col_name_1" type="text" class="validate">
-                                                <label >增量列值</label>
-                                                    <input id="col_val_1" type="text" class="validate">
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col s12 ">
-                                        <div class="card">
-                                            <div class="card-content ">
-                                                <p class="card-title">SNP_R602</p>
-                                                <label >增量列名称</label>
-                                                <input id="col_name_2" type="text" class="validate">
-                                                <label >增量列值</label>
-                                                <input id="col_val_2" type="text" class="validate">
-
-                                            </div>
-                                        </div>
-                                    </div>
 
                                 </div>
 
@@ -200,33 +163,33 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" style="overflow-x:hidden">
                 <!-- 右侧卡片 -->
-                <div class="col-md-12">
-                    <div class="card">
+                <div class="col-md-12" style="overflow-x:hidden">
+                    <div class="card" style="overflow-x:hidden">
                         <div class="card-action">
                             表空间列表
                         </div>
-                        <div class="card-content">
-                            <div class="table-responsive">
+                        <div class="card-content" id="right-container-view" style="overflow-x:hidden" >
+                            <div class="table-responsive" style="overflow-x:hidden">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-e">
                                     <thead>
                                     <tr>
                                         <th>Column 1</th>
                                         <th>Column 2</th>
-                                        <th>Column 2</th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
                                         <td>Row 1 Data 1</td>
                                         <td>Row 1 Data 2</td>
-                                        <td>Row 1 Data 2</td>
+
                                     </tr>
                                     <tr>
                                         <td>Row 2 Data 1</td>
                                         <td>Row 2 Data 2</td>
-                                        <td>Row 1 Data 2</td>
+
                                     </tr>
                                     </tbody>
                                 </table>

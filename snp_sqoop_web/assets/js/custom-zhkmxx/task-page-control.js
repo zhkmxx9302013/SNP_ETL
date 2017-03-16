@@ -17,31 +17,25 @@ function dataTableControl(tableData) {
         pagingType: 'full',
         "lengthMenu": [10,15,20],
         "autoWidth": true,
-         scroller: false,
-        "columnDefs": [
-            { "width": "10px", "targets": 0 },
-            { "width": "10px", "targets": 1 },
-            { "width": "90px", "targets": 2 },
-            {
-                "render":function(data,type,row){
-                    if(row.online=="true"){
-                        return "<input type='checkbox' checked/>"
-                    }else{
-                        return "<input type='checkbox'/>"
-                    }
-                },
-                "targets":0
+        "scroller": false,
+        'columnDefs': [{
+            'targets': 0,
+            "width": "10%",
+            'searchable': false,
+            'orderable': false,
+            'className': 'dt-body-center',
+            'render': function (data, type, full, meta){
+                    return '<input type="checkbox" style="left:40px;opacity:100">';//'<input type="checkbox" class="filled-in" value="999">';
             }
-
-        ],
+        }],
         data:tableData, //[{ida:10,tableName:9},{ida:10,tableName:9}],  //JSON.stringify(tableData),
+
         "columns": [
-            {title:""},
-            { title:"表序号",data: "ida" },
-            { title:"表空间名称",data: "tableName"  }
+            { title:"" ,"width": "20%"},
+            { title:"表序号",data: "ida" ,"width": "20%"},
+            { title:"表空间名称",data: "tableName" ,"width": "60%" }
 
         ],
-
 
         language: {
             "decimal":        "",

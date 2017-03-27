@@ -5,13 +5,20 @@ var globalConunt = 0;
 var _table;
 var tbData;
 $(document).ready(function () {
+    $('.modal').modal({
+        ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+            commitTaskDetail();
+        }
+    });
     $("#input-alert").hide();
+
     datePickControl();
     isIncreamentContorl();
     isDateIncreamentContorl();
     isColIncreamentContorl();
     fetchTableData();
     inputFoucus();
+
 });
 
 function dataTableControl(tableData) {
@@ -195,15 +202,17 @@ function generateDateIncreamentCard(){
     $("#date-time-div").empty();
     for(var i = 0; i < tagCount; i++){
 
-        $("#date-time-div").append('<div class="col s12">'+
-            '<div class="card ">'+
-            '<div class="card-content ">'+
-            '<span class="card-title">' +$("#table_name_list").children().eq(i).text() + '</span>'+
-            '<input class="date_picker" placeholder="选择增量开始时间">'+
-            '</div>'+
-            '</div>'+
+        $("#date-time-div").append(
+            '<div class="col s12">'+
+                '<div class="card ">'+
+                    '<div class="card-content ">'+
+                        '<span class="card-title">' +$("#table_name_list").children().eq(i).text() + '</span>'+
+                        '<input class="date_picker" placeholder="选择增量开始时间">'+
+                    '</div>'+
+                '</div>'+
             '</div>');
     }
+
 
 }
 
@@ -247,6 +256,83 @@ function setLeftContainerHeight(){
     $("#left-container-view").css("overflow-y", "scroll");
     $("#left-container-view").css("right", "-17px");
 }
+
+
+function commitTaskDetail(){
+    var tagCount = $("#table_name_list").children().length;
+    $("#modal-info-content").empty();
+    if ($("#is_Increament").is(":checked")) {
+        if ($("#increament_mode_date").is(":checked")) {
+            for(var i = 0; i < tagCount; i++){
+                $("#modal-info-content").append(
+                    '<div class="col s12">'+
+                    '<div class="card blue col-md-4">'+
+                    '<div class="card-content  white-text">'+
+                    '<div >' +$("#table_name_list").children().eq(i).text() + '</div>'+
+                    '</div>'+
+                    '</div>'+
+                    '<div class="card blue-grey darken-1 col-md-3">'+
+                    '<div class="card-content  white-text">'+
+                    '<div >' + '增量模式：按时间增量导入' + '</div>'+
+                    '</div>'+
+                    '</div>'+
+                    '<div class="card red  col-md-5">'+
+                    '<div class="card-content  white-text">'+
+                    '<div >' + '起始时间：' +$("#date-time-div").find("input").eq(i).val()+ '</div>'+
+                    '</div>'+
+                    '</div>'+
+                    '</div>'
+
+                );
+            }
+        }
+        if($("#increament_mode_colval").is(":checked")) {
+            for(var i = 0; i < tagCount; i++){
+                $("#modal-info-content").append(
+                    '<div class="col s12">'+
+                    '<div class="card blue col-md-4">'+
+                    '<div class="card-content  white-text">'+
+                    '<div >' +$("#table_name_list").children().eq(i).text() + '</div>'+
+                    '</div>'+
+                    '</div>'+
+                    '<div class="card blue-grey darken-1 col-md-3">'+
+                    '<div class="card-content  white-text">'+
+                    '<div >' + '增量模式：按列值增量导入' + '</div>'+
+                    '</div>'+
+                    '</div>'+
+                    '<div class="card red col-md-5">'+
+                    '<div class="card-content  white-text">'+
+                    '<div >' + '字段名称：'+$("#col-val-div").find("input").eq(i+i).val() +'&nbsp&nbsp&nbsp&nbsp'+ '字段值:' + $("#col-val-div").find("input").eq(i+i+1).val() + '</div>'+
+                    '</div>'+
+                    '</div>'+
+                    '</div>'
+
+                );
+            }
+        }
+    } else {
+        for(var i = 0; i < tagCount; i++){
+            $("#modal-info-content").append(
+                '<div class="col s12">'+
+                    '<div class="card blue col-md-9">'+
+                        '<div class="card-content  white-text">'+
+                            '<div >' +$("#table_name_list").children().eq(i).text() + '</div>'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="card blue-grey darken-1 col-md-3">'+
+                        '<div class="card-content  white-text">'+
+                            '<div >' + '增量模式：未开启' + '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'
+
+                );
+        }
+    }
+}
+
+
+
 
 var ip = "localhost";//"10.2.32.10";
 var url_prefix = "http://" + ip + ":3097";

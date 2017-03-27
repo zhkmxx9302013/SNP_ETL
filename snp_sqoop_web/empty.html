@@ -23,6 +23,7 @@
 </head>
 
 <body>
+
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -99,6 +100,8 @@
 
         </div>
         <div id="page-inner">
+
+
             <div class="col-md-6" style="overflow-x:hidden;overflow-y:hidden;;max-height:4000px">
                 <div class="card">
                     <div class="card-action">
@@ -138,7 +141,14 @@
                                     <label for="increament_mode_date">按时间增量导入</label>
                                 </p>
                                 <div id="date-time-div">
-
+                                    <div class="col s12">
+                                        <div class="card ">
+                                            <div class="card-content ">
+                                            <span class="card-title">99</span>
+                                            <input class="date_picker" placeholder="选择增量开始时间">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <p>
                                     <input type="checkbox" class="filled-in" id="increament_mode_colval"/>
@@ -154,8 +164,9 @@
 
                             <center>
 
-                                <a class="waves-effect waves-light btn-large"><i
+                                <a class="waves-effect waves-light btn-large " id="btnSubmit" href="#modal1"><i
                                         class="material-icons left">done</i>任务提交</a>
+
                             </center>
 
                         </form>
@@ -163,6 +174,31 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal modal-fixed-footer">
+                <div class="modal-content" >
+                    <h4>任务信息确认</h4>
+                    <div id="modal-info-content" class="card">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">提交</a>
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">取消</a>
+                </div>
+            </div>
+            <div id="modal2" class="modal">
+                <div class="modal-content">
+                    <h4>警告</h4>
+                    <p>请填写全部信息！</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">同意</a>
+                </div>
+            </div>
+            <!-- Modal Structure -->
+
             <div class="col-md-6" style="overflow-x:hidden">
                 <!-- 右侧卡片 -->
                 <div class="col-md-12" style="overflow-x:hidden">
@@ -198,6 +234,8 @@
                     </div>
                 </div>
             </div>
+
+
 
         </div>
         <!-- /. PAGE INNER  -->

@@ -12,13 +12,15 @@ $(document).ready(function () {
     });
     $("#input-alert").hide();
 
+
     datePickControl();
     isIncreamentContorl();
     isDateIncreamentContorl();
     isColIncreamentContorl();
     fetchTableData();
     inputFoucus();
-
+    setTaskID();
+    Materialize.updateTextFields();
 });
 
 function dataTableControl(tableData) {
@@ -108,6 +110,7 @@ function isDateIncreamentContorl() {
             $('#date-time-div').hide();
         }
     });
+
 }
 
 function isColIncreamentContorl() {
@@ -170,6 +173,7 @@ function addTag(data){
 function onAddBtnClickListener(){
     var tableNames = $("#text_DSname").val();
     var tbArr = tableNames.split(",");
+
     for(var i = 0; i < tbArr.length; i++){
 
         if(JSON.stringify(tbData).indexOf(tbArr[i]) == -1){
@@ -197,6 +201,14 @@ function inputFoucus(){
     });
 }
 
+function setTaskID(){
+    var localstroage = window.localStorage;
+    //console.log(localstroage.getItem("DS-title"));
+    $("#text_DS").val(localstroage.getItem("DS-title"));
+    $("#text_TaskID").val(createHexRandom());
+
+}
+
 function generateDateIncreamentCard(){
     var tagCount = $("#table_name_list").children().length;
     $("#date-time-div").empty();
@@ -207,12 +219,24 @@ function generateDateIncreamentCard(){
                 '<div class="card ">'+
                     '<div class="card-content ">'+
                         '<span class="card-title">' +$("#table_name_list").children().eq(i).text() + '</span>'+
-                        '<input class="date_picker" placeholder="选择增量开始时间">'+
+                        '<input class="date_picker"  placeholder="选择增量开始时间">'+
                     '</div>'+
                 '</div>'+
             '</div>');
-    }
 
+        //$('.datepicker').pickadate({
+        //    selectTimes: true,
+        //    selectMonths: true, // Creates a dropdown to control month
+        //    selectYears: 15 // Creates a dropdown of 15 years to control year
+        //});
+
+        $(".date_picker").flatpickr({
+            enableTime: true,
+            weekNumbers: true,
+            altInput: true
+        });
+    }
+    //window.setTimeout(datePickControl(),2000);
 
 }
 
@@ -331,7 +355,37 @@ function commitTaskDetail(){
     }
 }
 
-
+function createHexRandom() {
+    var num = '';
+    for (i = 0; i <= 31; i++) {
+        var tmp = Math.ceil(Math.random() * 15);
+        if (tmp > 9) {
+            switch (tmp) {
+                case(10):
+                    num += 'a';
+                    break;
+                case(11):
+                    num += 'b';
+                    break;
+                case(12):
+                    num += 'c';
+                    break;
+                case(13):
+                    num += 'd';
+                    break;
+                case(14):
+                    num += 'e';
+                    break;
+                case(15):
+                    num += 'f';
+                    break;
+            }
+        } else {
+            num += tmp;
+        }
+    }
+    return num
+}
 
 
 var ip = "localhost";//"10.2.32.10";

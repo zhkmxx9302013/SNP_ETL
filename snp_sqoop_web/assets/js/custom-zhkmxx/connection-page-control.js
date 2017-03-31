@@ -151,8 +151,8 @@ function editConfig(){
 }
 
 function addViewToDatasourceContainer(data, postData){
-    var datasourceCardView = "<div class=\"col-md-12 col-sm-12\">" +
-    "<div class=\"card blue-grey darken-1\">"+
+    var datasourceCardView = "<div class=\"col-md-12 col-sm-12 \">" +
+    "<div class=\"card blue darken-1 hoverable\">"+
         "<div class=\"card-content white-text\">"+
             "<span class=\"card-title\">" +data[connName]+" <\/span>"+
             "<p>数据源地址\:<label>" +data[connServer]+" <\/p>"+
@@ -177,10 +177,20 @@ function onModifyConfig() {
     console.log(a+ "a");
 }
 
+function onDeleteAction(){
+
+}
+
+function onSelectAction(event){
+    var localstroage = window.localStorage;
+    passConnName = $(event.target).parent().parent().find("span").text();
+    localstroage.setItem("DS-title", passConnName);
+    window.location.href='empty.html';
+}
 
 function regenerateViewToDatasourceContainer(connName,connServer,connPort,connDBName,connUserName,connUrl){
     var datasourceCardView = "<div class=\"col-md-12 col-sm-12\">" +
-        "<div class=\"card blue-grey darken-1\">"+
+        "<div class=\"card  darken-1 hoverable\" style='background-color: #265a88'>"+
         "<div class=\"card-content white-text\">"+
         "<span class=\"card-title\">" +connName+" <\/span>"+
         "<p>数据源地址\:<label>" +connServer+" <\/p>"+
@@ -192,8 +202,8 @@ function regenerateViewToDatasourceContainer(connName,connServer,connPort,connDB
         "<div class=\"card-action\">"+
         "<a onclick=\"onModifyConfig()\">修改配置项<\/a>"+
         "<a href=\"#\">测试连接项<\/a>"+
-        "<a href=\"#\">选择数据源<\/a>"+
-        "<a href=\"#\">删除数据源<\/a>"+
+        "<a onclick='onSelectAction(event)'>选择数据源<\/a>"+
+        "<a onclick='onDeleteAction()'>删除数据源<\/a>"+
         "<\/div>"+
         "<\/div>";
     $("#datasource-container").append(datasourceCardView);

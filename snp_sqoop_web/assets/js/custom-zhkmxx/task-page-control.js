@@ -203,7 +203,6 @@ function inputFoucus(){
 
 function setTaskID(){
     var localstroage = window.localStorage;
-    //console.log(localstroage.getItem("DS-title"));
     $("#text_DS").val(localstroage.getItem("DS-title"));
     $("#text_TaskID").val(createHexRandom());
 
@@ -223,20 +222,12 @@ function generateDateIncreamentCard(){
                     '</div>'+
                 '</div>'+
             '</div>');
-
-        //$('.datepicker').pickadate({
-        //    selectTimes: true,
-        //    selectMonths: true, // Creates a dropdown to control month
-        //    selectYears: 15 // Creates a dropdown of 15 years to control year
-        //});
-
         $(".date_picker").flatpickr({
             enableTime: true,
             weekNumbers: true,
             altInput: true
         });
     }
-    //window.setTimeout(datePickControl(),2000);
 
 }
 

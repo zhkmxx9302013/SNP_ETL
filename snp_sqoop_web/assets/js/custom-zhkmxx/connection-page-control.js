@@ -151,7 +151,7 @@ function editConfig(){
 }
 
 function addViewToDatasourceContainer(data, postData){
-    var datasourceCardView = "<div class=\"col-md-12 col-sm-12 \">" +
+    var datasourceCardView = "<div class=\"col-md-12 col-sm-12 \" style='background-color: #265a88'>" +
     "<div class=\"card blue darken-1 hoverable\">"+
         "<div class=\"card-content white-text\">"+
             "<span class=\"card-title\">" +data[connName]+" <\/span>"+

@@ -23,7 +23,7 @@ router.post('/', function (req, res) {
     var isSuccsess = false;
 
     console.log(connPassword + connUrl);
-    if(connUserName === "SNP" && connPassword === connUserName && connUrl=="jdbc:oracle:thin:@10.2.32.1:1521:orcl"){
+    if(connUserName == "SNP" && connPassword == connUserName && connUrl=="jdbc:oracle:thin:@10.2.32.1:1521:orcl"){
         isSuccsess = true;
     }
 

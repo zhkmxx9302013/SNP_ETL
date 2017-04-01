@@ -11,8 +11,9 @@ var users = require('./routes/users');
 var testconn = require('./routes/testconnection');
 var creatconn = require('./routes/createconnection');
 var fetchTables = require('./routes/fetchtables');
+var modifyconnection = require('./routes/modifyconnection');
 var committask = require('./routes/committask');
-
+var deleteconnection = require('./routes/deleteconnection');
 var app = express();
 
 // view engine setup
@@ -32,6 +33,8 @@ app.use('/users', users);
 app.use('/snp/testconnection',testconn);
 app.use('/snp/createconnection',creatconn);
 app.use('/snp/fetchtables',fetchTables);
+app.use('/snp/modifyconnection',modifyconnection);
+app.use('/snp/deleteconnection',deleteconnection);
 //app.use('/snp/committask',committask);
 
 

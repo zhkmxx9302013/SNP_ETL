@@ -28,11 +28,37 @@ router.post('/', function (req, res) {
     }
 
     if(isSuccsess === true){
-        var data_to_tmp = req.body.connName + ",\n" + req.body.connUserName + ",\n" + req.body.connDBName + ",\n" + req.body.connPort + ",\n" + req.body.connUrl +  ",\n" + req.body.connServer +",\n??"
-        fs.appendFile('tmpfile/datasource', data_to_tmp , function(err){
-            if (err) throw err;
-            console.log('The "data to append" was appended to file!');
+        fs.readFile("tmpfile/datasource.json",'utf-8',function(err,data){
+            if(err){
+                console.log("error");
+                res.send("error");
+            }else{
+                var listObj = [];
+                var result = {}
+                console.log(data.length);
+                if (data.length == 0){
+                    result = listObj;
+                }else{
+                    result=JSON.parse(data);
+                }
+                var connObj = {};
+                connObj.connName = req.body.connName;
+                connObj.connUserName = req.body.connUserName
+                connObj.connDBName = req.body.connDBName;
+                connObj.connPort = req.body.connPort;
+                connObj.connServer = req.body.connServer;
+                connObj.connUrl = req.body.connUrl;
+                result.push(connObj);
+                //var data_to_tmp ="connName:" + req.body.connName + ",\n" +
+                //    "connUserName:" + req.body.connUserName + ",\n" +
+                //    "connDBName:" + req.body.connDBName + ",\n" +
+                //    "connPort:" + req.body.connPort + ",\n" +
+                //    "connUrl:" + req.body.connUrl +  ",\n" +
+                //    "connServer:" + req.body.connServer +",\n??"
+                fs.writeFileSync('tmpfile/datasource.json', JSON.stringify(result));
+            }
         });
+
     }
 
     res.send(isSuccsess.toString());
@@ -42,13 +68,13 @@ router.post('/', function (req, res) {
 
 router.get('/', function(req, res, next) {
     var existDS = "";
-    fs.readFile("tmpfile/datasource",'utf-8',function(err,data){
+    fs.readFile("tmpfile/datasource.json",'utf-8',function(err,data){
         if(err){
             console.log("error");
             res.send("error");
         }else{
             existDS = data;
-            res.send(existDS);
+            res.send(JSON.stringify(existDS));
         }
     });
 

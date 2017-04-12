@@ -137,7 +137,7 @@ function fetchTableData(){
             dataTableControl(data);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
-            alert(textStatus);
+            Materialize.toast("服务器停止服务，请联系管理员！", 4000,"red") ;
         }
     });
 }

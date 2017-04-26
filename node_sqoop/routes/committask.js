@@ -17,13 +17,21 @@ router.all('*', function(req, res, next) {
 });
 
 //Post handler
-router.post('/', function (req, res) {
-    //var connUserName = req.body.connUserName;
-    //var connPassword = req.body.connPassword;
-    //var connUrl = req.body.connUrl;
-    //
-    //callfile.execFile('/home/code/test.sh',['-H', ip, '-U', username, '-P', password, '-N', newpassword],null,function (err, stdout, stderr) {
-    //    callback(err, stdout, stderr);
-    //});
-    //res.send(isSuccsess.toString());
+router.post('/', function(req, res, next) {
+    var tableNameArr = JSON.parse(req.body.tableNames);
+    for(var i = 0 ; i< tableNameArr.length; i++){
+        callfile.execFile('/home/code/nodejstest.sh',[JSON.stringify(tableNameArr[i].tableName)],null,function (error, stdout, stderr) {
+            if (error) {
+                console.log(error);
+                console.log(stderr);
+                throw error;
+            }
+            console.log(stdout);
+        });
+        console.log(JSON.stringify(tableNameArr[i].tableName));
+    }
+
+    res.send("successs");
 });
+
+module.exports = router;

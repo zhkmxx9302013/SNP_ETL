@@ -35,7 +35,7 @@ app.use('/snp/createconnection',creatconn);
 app.use('/snp/fetchtables',fetchTables);
 app.use('/snp/modifyconnection',modifyconnection);
 app.use('/snp/deleteconnection',deleteconnection);
-//app.use('/snp/committask',committask);
+app.use('/snp/committask',committask);
 
 
 

@@ -357,7 +357,7 @@ var connUserName = "connUserName";
 var connPassword = "connPassword";
 var connUrl = "connUrl";
 
-var ip = "localhost";//"10.2.32.10";
+var ip = "10.2.32.10";//"localhost";//"10.2.32.10";
 var url_prefix = "http://" + ip + ":3097";
 var testConnRouter = url_prefix + "/snp/testconnection";
 var createConnRouter = url_prefix + "/snp/createconnection";

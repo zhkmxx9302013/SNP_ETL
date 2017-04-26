@@ -344,6 +344,37 @@ function commitTaskDetail(){
                 );
         }
     }
+    commitTask();
+}
+
+function commitTask(){
+    $('#commitTask').click(function(){
+        var tagCount = $("#table_name_list").children().length;
+        var jsonArr = [];
+        for(var i = 0; i < tagCount; i++){
+            var tbName = $("#table_name_list").children().eq(i).text();
+            if(tbName.indexOf("\n") == 0){
+                tbName = tbName.substring(1);
+            }
+            var jsonItem = {'tableName':tbName};
+            jsonArr.push(jsonItem);
+        }
+        var tableNames = {"tableNames": JSON.stringify(jsonArr)};
+        console.log(tableNames);
+        $.ajax({
+            url:commitTaskUrl,
+            method: 'POST',
+            data:tableNames,
+            dataType:'text',
+            success: function(data){
+                Materialize.toast("任务提交成功", 4000) ;
+                setTimeout("location.href = 'process.html'", 2000);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                Materialize.toast("服务器停止服务，请联系管理员！", 4000,"red") ;
+            }
+        });
+    });
 }
 
 function createHexRandom() {
@@ -379,8 +410,9 @@ function createHexRandom() {
 }
 
 
-var ip = "localhost";//"10.2.32.10";
+var ip = "10.2.32.10";//"localhost";
 var url_prefix = "http://" + ip + ":3097";
 var fetchTablesRouter = url_prefix + "/snp/fetchtables";
+var commitTaskUrl = url_prefix + "/snp/committask"
 var $table = $('#dataTables-e');
 

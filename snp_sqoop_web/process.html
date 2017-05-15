@@ -101,23 +101,86 @@
 
         </div>
         <div id="page-inner">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-action">
-                            Animated Progress Bars
+            <div class="col-md-6" style="overflow-x:hidden;overflow-y:hidden;;max-height:4000px">
+                <div class="card">
+                    <div class="card-action">
+                        任务队列及进度
+                    </div>
+                    <!-- 左侧卡片 -->
+                    <div class="card-content" id="left-container-view" style="overflow-x:hidden;overflow-y:hidden">
+                    <!-- --->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card hoverable">
+                                    <div class="card-action ">
+                                        <div class="card-title"><span>888s</span></div>
+                                        <p>任务ID：<label>E1231D34RFS21397600 </label></p>
+                                        <p>任务状态：<label>正在执行</label></p>
+                                        <p>执行进度：<label>40%</label></p>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="progress progress-striped active">
+                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                                <span class="sr-only">40% Complete (failed)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <div class="progress progress-striped active">
-                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40"
-                                     aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                    <span class="sr-only">40% Complete (success)</span>
+                        <!-- --->
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="overflow-x:hidden">
+                <!-- 右侧卡片 -->
+                <div class="col-md-12" style="overflow-x:hidden">
+                    <div class="card" style="overflow-x:hidden">
+                        <div class="card-action">
+                            已完成任务
+                        </div>
+                        <div class="card-content" id="right-container-view" style="overflow-x:hidden" >
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card hoverable white-text" style="background-color: #017e20">
+                                        <div class="card-action ">
+                                            <div class="card-title"><span>888s</span></div>
+                                            <p>任务ID：<label>E1231D34RFS21397600 </label></p>
+                                            <p>任务状态：<label>执行成功</label></p>
+                                            <p>表空间信息：<label>SNP_R601</label></p>
+                                            <p>增量任务：<label>否</label></p>
+                                        </div>
+                                        <div class="card-content">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card hoverable white-text" style="background-color: #8c0900">
+                                        <div class="card-action ">
+                                            <div class="card-title"><span>888s</span></div>
+                                            <p>任务ID：<label>E1231D34RFS21397600 </label></p>
+                                            <p>任务状态：<label>执行异常</label></p>
+                                            <p>表空间信息：<label>SNP_R601</label></p>
+                                            <p>增量任务：<label>否</label></p>
+                                        </div>
+                                        <div class="card-content">
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
         <footer>
             <p>Copyright &copy; 2017.Company name All rights reserved.</p>

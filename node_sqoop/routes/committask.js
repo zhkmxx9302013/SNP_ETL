@@ -20,7 +20,7 @@ router.all('*', function(req, res, next) {
 router.post('/', function(req, res, next) {
     var tableNameArr = JSON.parse(req.body.tableNames);
     for(var i = 0 ; i< tableNameArr.length; i++){
-        callfile.execFile('/home/code/nodejstest.sh',[JSON.stringify(tableNameArr[i].tableName)],null,function (error, stdout, stderr) {
+        callfile.execFile('/home/code/sqoop_as_hive_orc.sh',[JSON.stringify(tableNameArr[i].tableName.substring(1,tableNameArr[i].tableName.length - 1))],null,function (error, stdout, stderr) {
             if (error) {
                 console.log(error);
                 console.log(stderr);

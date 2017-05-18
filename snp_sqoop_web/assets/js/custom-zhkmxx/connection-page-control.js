@@ -44,7 +44,7 @@ function generateConnJson() {
         "connDBName":$("#text_dbname").val(),
         "connUserName":$("#text_name").val(),
         "connPassword":$("#text_passwd").val()
-    }
+    };
     return connData;
 }
 
@@ -65,7 +65,7 @@ function testConnFunc(){
         var postData = {
             "connUserName":data[connUserName],
             "connPassword":data[connPassword],
-            "connUrl":connPostUrl}
+            "connUrl":connPostUrl};
 
         $.ajax({
             url:testConnRouter,
@@ -106,7 +106,7 @@ function createConnFunc() {
             "connPort":dataJ[connPort],
             "connDBName":dataJ[connDBName],
             "connName":dataJ[connName],
-            "connUrl":connPostUrl}
+            "connUrl":connPostUrl};
        var DSArray = JSON.parse(existDatasource);
        for(var obj in DSArray){
             if(DSArray[obj].connName == dataJ[connName]){
@@ -209,7 +209,7 @@ function modifyBtn(){
             "connDBName":dataJ[connDBName],
             "connName":dataJ[connName],
             "connUrl":connPostUrl
-        }
+        };
         $.ajax({
             url:modifyConnRouter,
             dataType:"text",
@@ -226,7 +226,7 @@ function modifyBtn(){
                     var connDBName = DSarray[obj].connDBName;
                     var connUserName = DSarray[obj].connUserName;
                     var connUrl = DSarray[obj].connUrl;
-                    regenerateViewToDatasourceContainer(connName,connServer,connPort,connDBName,connUserName,connUrl)
+                    regenerateViewToDatasourceContainer(connName,connServer,connPort,connDBName,connUserName,connUrl);
                     $("#submitBtn").show();
                     $("#modifyBtn").hide();
                     $("#text_DSname").attr("disabled",false);
@@ -262,7 +262,7 @@ function onModifyConfig(event) {
 function onDeleteAction(event){
     var postData = {
         "connName":$(event.target).parent().parent().find("span").text().trim()
-    }
+    };
     $.ajax({
         url:deleteConnRouter,
         dataType:"text",
@@ -291,7 +291,7 @@ function onTestAction(event){
         "connUserName":$(event.target).parent().parent().find("p").eq(3).text().split(":")[1].trim(),
         "connPassword":$(event.target).parent().parent().find("p").eq(3).text().split(":")[1].trim(),
         "connUrl":$(event.target).parent().parent().find("p").eq(4).text().substring(8).trim()
-    }
+    };
 
     $.ajax({
         url:testConnRouter,

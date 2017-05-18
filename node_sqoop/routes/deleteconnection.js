@@ -28,7 +28,7 @@ router.post('/', function (req, res) {
             } else {
                 var i = 0;
                 var listObj = [];
-                var result = {}
+                var result = {};
                 if (data.length == 0) {
                     result = listObj;
                 } else {

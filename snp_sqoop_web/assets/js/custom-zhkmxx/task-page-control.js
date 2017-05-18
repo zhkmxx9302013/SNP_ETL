@@ -89,7 +89,7 @@ function isIncreamentContorl() {
     $('#increament_block').hide();
     $("#is_Increament").click(function() {
         if ($("#is_Increament").is(":checked")) {
-            $("#increament_mode_date").active
+            $("#increament_mode_date").active;
             $('#increament_block').show();
         } else {
             $('#increament_block').hide();
@@ -413,6 +413,6 @@ function createHexRandom() {
 var ip = "10.2.32.10";//"localhost";
 var url_prefix = "http://" + ip + ":3097";
 var fetchTablesRouter = url_prefix + "/snp/fetchtables";
-var commitTaskUrl = url_prefix + "/snp/committask"
+var commitTaskUrl = url_prefix + "/snp/committask";
 var $table = $('#dataTables-e');
 

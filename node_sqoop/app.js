@@ -12,8 +12,10 @@ var testconn = require('./routes/testconnection');
 var creatconn = require('./routes/createconnection');
 var fetchTables = require('./routes/fetchtables');
 var modifyconnection = require('./routes/modifyconnection');
-var committask = require('./routes/committask');
 var deleteconnection = require('./routes/deleteconnection');
+var committask = require('./routes/committask');
+var refreshprocess = require('./routes/refreshprocess');
+var fetchcompletedtask = require('./routes/fetchcompletedtask');
 var app = express();
 
 // view engine setup
@@ -29,32 +31,34 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/snp/committask',committask);
 app.use('/users', users);
 app.use('/snp/testconnection',testconn);
 app.use('/snp/createconnection',creatconn);
 app.use('/snp/fetchtables',fetchTables);
 app.use('/snp/modifyconnection',modifyconnection);
 app.use('/snp/deleteconnection',deleteconnection);
-app.use('/snp/committask',committask);
+app.use('/snp/refreshprocess',refreshprocess);
+app.use('/snp/fetchcompletedtask',fetchcompletedtask)
 
 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 var server = app.listen(3097, function () {

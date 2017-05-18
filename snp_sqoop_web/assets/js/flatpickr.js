@@ -845,7 +845,7 @@ function Flatpickr(element, config) {
         for (var timestamp = self.days.childNodes[0].dateObj.getTime(), i = 0; i < 42; i++, timestamp += self.utils.duration.DAY) {
             var _ret = _loop(timestamp, i);
 
-            if (_ret === "continue") continue;
+            if (_ret === "continue")
         }
     }
 
@@ -2012,4 +2012,4 @@ if (!window.document.documentElement.classList && Object.defineProperty && typeo
 }
 
 if (typeof module !== "undefined") module.exports = Flatpickr;
-0
+0;

@@ -34,7 +34,7 @@ router.post('/', function (req, res) {
                 res.send("error");
             }else{
                 var listObj = [];
-                var result = {}
+                var result = {};
                 console.log(data.length);
                 if (data.length == 0){
                     result = listObj;
@@ -43,7 +43,7 @@ router.post('/', function (req, res) {
                 }
                 var connObj = {};
                 connObj.connName = req.body.connName;
-                connObj.connUserName = req.body.connUserName
+                connObj.connUserName = req.body.connUserName;
                 connObj.connDBName = req.body.connDBName;
                 connObj.connPort = req.body.connPort;
                 connObj.connServer = req.body.connServer;

@@ -34,7 +34,7 @@ router.post('/', function (req, res) {
                 res.send("error");
             } else {
                 var listObj = [];
-                var result = {}
+                var result = {};
                 if (data.length == 0) {
                     result = listObj;
                 } else {
@@ -46,7 +46,7 @@ router.post('/', function (req, res) {
                         result[obj].connPort = connPort;
                         result[obj].connUserName = connUserName;
                         result[obj].connUrl = connUrl;
-                        console.log("aaa")
+                        console.log("aaa");
                         break;
                     }
                 }

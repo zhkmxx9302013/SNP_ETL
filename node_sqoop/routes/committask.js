@@ -1,10 +1,11 @@
 /**
  * Created by zhaozihe on 2017/3/17.
  */
-var callfile = require('child_process');
+
 var express = require('express');
 var router = express.Router();
 const fs = require('fs');
+var callfile = require('child_process');
 
 
 router.all('*', function(req, res, next) {
@@ -16,20 +17,21 @@ router.all('*', function(req, res, next) {
     next();
 });
 
-//Post handler
+
 router.post('/', function(req, res, next) {
     var tableNameArr = JSON.parse(req.body.tableNames);
-    for(var i = 0 ; i< tableNameArr.length; i++){
-        callfile.execFile('/home/code/sqoop_as_hive_orc.sh',[JSON.stringify(tableNameArr[i].tableName.substring(1,tableNameArr[i].tableName.length - 1))],null,function (error, stdout, stderr) {
-            if (error) {
-                console.log(error);
-                console.log(stderr);
-                throw error;
-            }
-            console.log(stdout);
-        });
-        console.log(JSON.stringify(tableNameArr[i].tableName));
-    }
+
+    // for(var i = 0 ; i< tableNameArr.length; i++){
+    //     callfile.execFile('/home/code/sqoop_as_hive_orc.sh',[tableNameArr[i].tableName],null,function (error, stdout, stderr) {
+    //         if (error) {
+    //             console.log(error);
+    //             console.log(stderr);
+    //             throw error;
+    //         }
+    //         console.log(stdout);
+    //     });
+    //     console.log("<===>" + tableNameArr[i].tableName);
+    // }
 
     res.send("successs");
 });
